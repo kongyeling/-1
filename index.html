@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#172b36" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23172b36'/%3E%3Cpath d='M16 4l3 9 9 3-9 3-3 9-3-9-9-3 9-3z' fill='%23b9e5c5'/%3E%3C/svg%3E" />
+    <title>PIXEL WORLD · 未知岛屿</title>
+  </head>
+  <body>
+    <div id="game">
+      <div id="loading">
+        <div class="loading-mark">PW</div>
+        <div class="loading-title">PIXEL WORLD</div>
+        <div class="loading-subtitle">正在生成未知岛屿…</div>
+        <div class="loading-track"><span></span></div>
+      </div>
+
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-icon">✦</div>
+          <div>
+            <div class="brand-name">PIXEL WORLD</div>
+            <div class="brand-sub">THE UNKNOWN ISLAND</div>
+          </div>
+        </div>
+        <div class="top-status">
+          <span class="status-dot"></span>
+          <span class="status-mode">探索模式</span>
+          <span class="top-divider"></span>
+          <span id="clock">DAY 01 · 08:00</span>
+        </div>
+      </div>
+
+      <section class="quest-card glass">
+        <div class="eyebrow">当前目标 / OBJECTIVE</div>
+        <div class="quest-title">探索未知岛屿</div>
+        <div class="quest-desc">前往东北山顶，激活古代信标。</div>
+        <div class="quest-progress"><span></span></div>
+        <div class="quest-foot"><span>初次探索</span><span id="quest-status">未完成</span></div>
+      </section>
+
+      <section class="map-card glass">
+        <div class="map-head">
+          <span>岛屿地图</span>
+          <span class="map-live">LIVE</span>
+        </div>
+        <canvas id="minimap" width="220" height="220"></canvas>
+        <div class="map-legend"><i></i> 当前位置</div>
+      </section>
+
+      <div class="bottom-left">
+        <div class="player-card glass">
+          <div class="avatar">旅</div>
+          <div class="player-info">
+            <div class="player-name">岛屿探索者</div>
+            <div class="level-row"><span>LV. 01</span><div class="xp-track"><i></i></div><span>0 / 100 XP</span></div>
+          </div>
+        </div>
+        <div class="movement-hint glass">
+          <div class="key-cluster">
+            <kbd>W</kbd>
+            <div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div>
+          </div>
+          <div class="hint-label">移动</div>
+          <span class="hint-separator"></span>
+          <kbd class="wide-key">SHIFT</kbd><span class="hint-label">奔跑</span>
+          <kbd class="wide-key">SPACE</kbd><span class="hint-label">跳跃</span>
+        </div>
+      </div>
+
+      <div class="bottom-right">
+        <div id="environment" class="environment-pill glass"><span class="env-icon">☀</span><span>晴朗 · 微风</span></div>
+        <div class="tool-slot glass">
+          <div class="tool-icon">⌖</div>
+          <div><div class="tool-name">探索工具</div><div class="tool-desc">扫描仪 · 未解锁</div></div>
+        </div>
+        <div class="tool-slot glass">
+          <div class="tool-icon bag-icon">▣</div>
+          <div><div class="tool-name">背包</div><div id="inventory" class="tool-desc">暂未收集物品</div></div>
+        </div>
+      </div>
+
+      <div id="interaction" class="interaction glass hidden">
+        <kbd>E</kbd><span id="interaction-text">交互</span>
+      </div>
+
+      <div id="toast" class="toast glass hidden"></div>
+
+      <div id="center-reticle" class="reticle"><span></span></div>
+
+      <button type="button" id="open-help" class="help-chip glass"><kbd>H</kbd> 操作指南</button>
+      <dialog id="help-panel" class="help-panel glass" aria-labelledby="help-title">
+        <button type="button" id="close-help" class="close-help" aria-label="关闭" autofocus>×</button>
+        <div class="eyebrow">HOW TO PLAY</div>
+        <h2 id="help-title">探索者操作指南</h2>
+        <div class="help-grid">
+          <div><kbd>W A S D</kbd><span>移动角色</span></div>
+          <div><kbd>SHIFT</kbd><span>奔跑</span></div>
+          <div><kbd>SPACE</kbd><span>跳跃 / 水中上浮</span></div>
+          <div><kbd>E</kbd><span>与物体交互</span></div>
+          <div><kbd>鼠标拖动</kbd><span>旋转视角</span></div>
+          <div><kbd>滚轮</kbd><span>调整镜头远近</span></div>
+          <div><kbd>H</kbd><span>打开 / 关闭帮助</span></div>
+        </div>
+        <p class="help-note">提示：靠近宝箱、信标或营地设施时，屏幕会出现交互提示。</p>
+      </dialog>
+
+      <div class="bottom-center">PIXEL WORLD <span>·</span> BUILD 0.1.0</div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
